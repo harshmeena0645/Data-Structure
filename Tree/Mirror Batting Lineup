@@ -13,7 +13,7 @@ Sample Input 1
 Sample Output 1
 10 30 20 50 40
 
-Code:
+Code-1:
 def mirror(l):
     length = len(l)
     if length == 0:
@@ -30,3 +30,52 @@ def mirror(l):
 n = int(input())
 l = list(map(int, input().split()))
 print(*mirror(l))
+
+
+Code-2:
+class TreeNode:
+    def __init__(self, value=0):
+        self.val = value
+        self.left = None
+        self.right = None
+
+def insert_level_order(arr, root, i, n):
+    if i < n:
+        temp = TreeNode(arr[i])
+        root = temp
+        root.left = insert_level_order(arr, root.left, 2 * i + 1, n)
+        root.right = insert_level_order(arr, root.right, 2 * i + 2, n)
+    return root
+
+def invert_tree(root):
+    if root is None:
+        return None
+    root.left, root.right = root.right, root.left
+    invert_tree(root.left)
+    invert_tree(root.right)
+    return root
+
+def level_order_traversal(root):
+    if not root:
+        return []
+    
+    result = []
+    queue = [root]
+    
+    while queue:
+        node = queue.pop(0)
+        result.append(node.val)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+    return result
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+root = None
+root = insert_level_order(arr, root, 0, n)
+root = invert_tree(root)
+result = level_order_traversal(root)
+print(" ".join(map(str, result)))
