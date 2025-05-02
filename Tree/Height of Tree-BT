@@ -8,15 +8,10 @@ Sample Output 0
 3
 Explanation 0
   3
-
  / \
-
  9 20
-
    / \
-
   15  7
-The maximum depth of this binary tree is 3 because the longest path from the root 3 to the farthest leaf nodes (15 or 7) contains 3 nodes.
 
 Sample Input 1
 7
