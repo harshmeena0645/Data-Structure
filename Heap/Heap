@@ -1,1 +1,72 @@
 Heap
+Min_heap
+Max_heap
+Heap_Sort
+
+
+# Code
+import heapq
+class MinHeap:
+    def __init__(self):
+        self.heap = []
+    
+    def insert(self, val):
+        heapq.heappush(self.heap, val)
+    
+    def delete(self):
+        if self.heap:
+            return heapq.heappop(self.heap)
+        return None
+    
+    def get_min(self):
+        return self.heap[0] if self.heap else None
+    
+    def heapify(self, arr):
+        heapq.heapify(arr)
+        self.heap = arr
+    
+    def heap_sort(self):
+        return [heapq.heappop(self.heap) for _ in range(len(self.heap))]
+
+class MaxHeap:
+    def __init__(self):
+        self.heap = []
+    
+    def insert(self, val):
+        heapq.heappush(self.heap, -val)
+    
+    def delete(self):
+        if self.heap:
+            return -heapq.heappop(self.heap)
+        return None
+    
+    def get_max(self):
+        return -self.heap[0] if self.heap else None
+    
+    def heapify(self, arr):
+        self.heap = [-x for x in arr]
+        heapq.heapify(self.heap)
+    
+    def heap_sort(self):
+        return [-heapq.heappop(self.heap) for _ in range(len(self.heap))]
+
+# Example Usage
+min_heap = MinHeap()
+max_heap = MaxHeap()
+
+arr = [10, 20, 15, 30, 40]
+min_heap.heapify(arr.copy())
+max_heap.heapify(arr.copy())
+
+print("Min Heap:", min_heap.heap)
+print("Max Heap:", [-x for x in max_heap.heap])
+print("Min Heap Sort:", min_heap.heap_sort())
+print("Max Heap Sort:", max_heap.heap_sort())
+
+
+
+# Output
+Min Heap: [10, 20, 15, 30, 40]
+Max Heap: [40, 30, 15, 10, 20]
+Min Heap Sort: [10, 15, 20, 30, 40]
+Max Heap Sort: [40, 30, 20, 15, 10]
