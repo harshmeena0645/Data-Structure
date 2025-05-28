@@ -1,0 +1,26 @@
+stack=[]
+def push():
+    element=input("Element:")
+    stack.append(element)
+    print(stack)
+def pop_element():
+    if not stack:
+        print("Stack is Empty")
+    else:
+        e=stack.pop()
+        print("Removed Element:",e)
+        print(stack)
+while True:
+    print("Select The Operation:")
+    print("1. Push")
+    print("2. Pop")
+    print("3. Quit")
+    choice=int(input("Your Choice:"))
+    if choice==1:
+        push()
+    elif choice==2:
+        pop_element()
+    elif choice==3:
+        break
+    else:
+        print("Enter Correct Operation")
