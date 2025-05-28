@@ -1,8 +1,12 @@
 stack=[]
 def push():
-    element=input("Element:")
-    stack.append(element)
-    print(stack)
+    if len(stack)==n:
+        print("list is Full")
+    else:
+        element=input("Element:")
+        stack.append(element)
+        print(stack)
+        
 def pop_element():
     if not stack:
         print("Stack is Empty")
@@ -10,6 +14,8 @@ def pop_element():
         e=stack.pop()
         print("Removed Element:",e)
         print(stack)
+
+n=int(input("Limit of Stack:"))
 while True:
     print("Select The Operation:")
     print("1. Push")
