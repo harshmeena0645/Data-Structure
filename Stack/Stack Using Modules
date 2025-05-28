@@ -28,6 +28,8 @@ while True:
     else:
         print("Enter Correct Operation")
 
+# not Stack --> True (for check stack is Empty)
+
 
 
 
