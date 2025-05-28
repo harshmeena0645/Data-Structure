@@ -1,0 +1,42 @@
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2  # Finding the middle of the array
+        left = arr[:mid]     # Dividing the array elements into 2 halves
+        right = arr[mid:]
+
+        merge_sort(left)     # Sorting the first half
+        merge_sort(right)    # Sorting the second half
+
+        # Merging the sorted halves
+        i = j = k = 0
+
+        # Copy data to temp arrays left[] and right[]
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                arr[k] = left[i]
+                i += 1
+            else:
+                arr[k] = right[j]
+                j += 1
+            k += 1
+
+        # Checking for any remaining elements
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
+
+
+arr = [38, 27, 43, 3, 9, 82, 10]
+merge_sort(arr)
+print("Sorted array is:", arr)
+
+
+Output-
+Sorted array is: [3, 9, 10, 27, 38, 43, 82]
+
