@@ -1,0 +1,34 @@
+q=[]
+q.append(10)
+q.append(40)
+q.sort()
+q.append(20)
+print(q)
+print(q.pop(0))
+print(q.pop())
+print(q)
+
+--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x
+
+import queue
+q = queue.PriorityQueue()
+q.put(10)
+q.put(60)
+q.put(20)
+q.put(40)
+q.put(40)
+print(q)
+print(q.get())
+print(q.get())
+
+--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x
+
+q=[]
+q.append((1,"alexa"))
+q.append((4,"aalex"))
+q.append((2,"al"))
+print(q)
+q.sort(reverse=True)
+print(q)
+print(q.pop())
+print(q.pop(0))
