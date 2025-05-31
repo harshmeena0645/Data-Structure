@@ -6,15 +6,13 @@ Ex-List of city names-->"Jaipur","Goa"
 Ex-List of Employees-->100,"Atul",25000
 
 What is Node?
-SLL
-Operations
+SLL Operations:
 insertion at start()-------->#No Traversing
 insertion at end()---------->#Traversing
 deletion at start()--------->#No Traversing
 deletion at end()----------->#Traversing
 is_empty()
 traverse()
-
 
 
 
@@ -115,6 +113,13 @@ print()
 
 for i in mylist:
     print(i,end=' ')
+
+
+
+Output:
+10 20 30 40 
+10 20 40 
+10 20 40 
 
 --x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x
 
