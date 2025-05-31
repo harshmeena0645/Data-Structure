@@ -1,0 +1,24 @@
+CLL
+Operations
+[]---[]---[]---[]---[]---[]---[]
+-^
+-|
+
+insertion at start()---------->#Traversing
+insertion at end()------------>#Traversing
+deletion at start()----------->#Traversing
+deletion at end()------------->#Traversing
+is_empty()
+traverse()
+
+SLL is Better then CLL When Start with 1st List
+[]---[]---[]---[]---[]---[]---[]
+------------------------------^
+------------------------------|
+
+insertion at start()---------->#No Traversing
+insertion at end()------------>#No Traversing
+deletion at start()----------->#No Traversing
+deletion at end()------------->#Traversing
+
+CLL is Better then SLL When Start with last List
