@@ -102,3 +102,10 @@ print()
 
 for i in mylist:
     print(i,end=' ')
+
+
+
+Output:
+10 20 30 40 
+10 20 40 
+10 20 40
