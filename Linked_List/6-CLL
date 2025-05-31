@@ -156,3 +156,10 @@ for x in cll:
 
 print()
 cll.print_list()
+
+
+
+
+Output:
+20 10 50 30 40 
+20 10 50 30 40
