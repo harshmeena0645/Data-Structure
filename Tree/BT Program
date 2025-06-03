@@ -1,0 +1,55 @@
+BT Program
+
+class Node:
+    def __init__(self, data):  
+        self.data = data  
+        self.left = None  
+        self.right = None  
+
+class BinaryTree:
+    def __init__(self):  
+        self.root = None  
+
+    def insertElements(self, elements):  
+        if not elements:  
+            return None  
+        self.root = Node(elements[0])  
+        queue = [self.root]  
+
+        i = 1  
+        while i < len(elements):  
+            curr = queue.pop(0)  
+
+            if i < len(elements) and elements[i] is not None:  
+                curr.left = Node(elements[i])  
+                queue.append(curr.left)  
+            i += 1  
+
+            if i < len(elements) and elements[i] is not None:  
+                curr.right = Node(elements[i])  
+                queue.append(curr.right)  
+            i += 1  
+            
+    def level_order(self):
+        if not self.root:
+            return
+        queue = [self.root]
+        while queue:
+            current = queue.pop(0)
+            print(current.data,end=' ')
+            
+            if current.left:
+                queue.append(current.left)
+            if current.right:
+                queue.append(current.right)
+
+arr = [1, 2, 3, 4, 5, 6, 7]
+int_values = [int(val) if val != "null" else None for val in arr]
+
+bt = BinaryTree()
+bt.insertElements(int_values)
+bt.level_order()
+
+
+Output:
+1 2 3 4 5 6 7
