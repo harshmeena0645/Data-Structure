@@ -1,0 +1,140 @@
+BST Program
+
+
+class Node:
+    def __init__(self, item=None, left=None, right=None):
+        self.item = item
+        self.left = left
+        self.right = right
+
+def insert(root, data):
+    if root is None:
+        return Node(data)
+    if data < root.item:
+        root.left = insert(root.left, data)
+    else:
+        root.right = insert(root.right, data)
+    return root
+
+def search(root, key):
+    if root is None or root.item == key:
+        return root
+    if key < root.item:
+        return search(root.left, key)
+    return search(root.right, key)
+
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.item, end=" ")
+        inorder(root.right)
+
+def preorder(root):
+    if root:
+        print(root.item, end=" ")
+        preorder(root.left)
+        preorder(root.right)
+
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.item, end=" ")
+        
+def level_order(root):
+    if not root:
+        return
+    queue = [root]
+    while queue:
+        node = queue.pop(0)
+        print(node.item, end=" ")
+
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+
+
+def find_min(root):
+    while root.left:
+        root = root.left
+    return root.item
+
+def find_max(root):
+    while root.right:
+        root = root.right
+    return root.item
+
+def delete(root, data):
+    if root is None:
+        return root
+    if data < root.item:
+        root.left = delete(root.left, data)
+    elif data > root.item:
+        root.right = delete(root.right, data)
+    else:
+        if root.left is None:
+            return root.right
+        elif root.right is None:
+            return root.left
+        temp_val = find_min(root.right)
+        root.item = temp_val
+        root.right = delete(root.right, temp_val)
+    return root
+
+def height(root):
+    if root is None:
+        return -1
+    return max(height(root.left), height(root.right)) + 1
+
+def size(root):
+    if root is None:
+        return 0
+    return 1 + size(root.left) + size(root.right)
+
+values = [50, 30, 70, 20, 40, 60, 80, 90]
+root = None
+for val in values:
+    root = insert(root, val)
+
+print("\nInorder Traversal: ", end="")
+inorder(root)
+
+print("\nPreorder Traversal: ", end="")
+preorder(root)
+
+print("\nPostorder Traversal: ", end="")
+postorder(root)
+
+print("\nLevel Order Traversal: ", end="")
+level_order(root)
+
+print("\nMin Value:", find_min(root))
+print("Max Value:", find_max(root))
+print("Size of BST:", size(root))
+print("Height of BST:", height(root))
+
+key = 60
+if search(root, key):
+    print(f"Found {key} in BST")
+else:
+    print(f"{key} not found in BST")
+
+delete_key = 70
+root = delete(root, delete_key)
+print(f"\nBST after deleting {delete_key} (Inorder Traversal): ", end="")
+inorder(root)
+
+
+Output:
+Inorder Traversal: 20 30 40 50 60 70 80 90 
+Preorder Traversal: 50 30 20 40 70 60 80 90 
+Postorder Traversal: 20 40 30 60 90 80 70 50 
+Level Order Traversal: 50 30 70 20 40 60 80 90 
+Min Value: 20
+Max Value: 90
+Size of BST: 8
+Height of BST: 3
+Found 60 in BST
+
+BST after deleting 70 (Inorder Traversal): 20 30 40 50 60 80 90 
