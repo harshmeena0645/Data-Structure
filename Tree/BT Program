@@ -1,5 +1,12 @@
 BT Program
 
+
+Tree
+Tree is a non-linear data structure that represent hierarchical relationship between data items. It widely used due to its flexibility & Versatility.
+A Tree is defined as a finite set of one or more data itmes (nodes),such that There is a special node called the root node of the tree and 
+the remaining nodes are partitioned into n>=0 disjoint subsets, each of which is itself a tree, and  they are known as subtrees.
+
+
 class Node:
     def __init__(self, data):  
         self.data = data  
