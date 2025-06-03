@@ -1,0 +1,59 @@
+Almost Complete Binary Tree without deque
+
+class Node:
+    def __init__(self, item=None, left=None, right=None):
+        self.item = item
+        self.left = left
+        self.right = right
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, data):
+        self.root = self.rinsert(self.root, data)
+
+    def rinsert(self, root, data):
+        if root is None:
+            return Node(data)
+        if data < root.item:
+            root.left = self.rinsert(root.left, data)
+        else:
+            root.right = self.rinsert(root.right, data)
+        return root
+
+    def is_complete(self):
+        if not self.root:
+            return True
+
+        queue = [self.root]  # Using a simple list instead of deque
+        end = False  # Flag to track None nodes
+
+        while queue:
+            node = queue.pop(0)  # Remove first element (FIFO behavior)
+            
+            if node:
+                if end:  # If we found a None before, it should not have more nodes
+                    return False
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                end = True  # Mark that we've encountered a None node
+
+        return True
+
+# Example Usage:
+tree = BST()
+tree.insert(10)
+tree.insert(5)
+tree.insert(15)
+tree.insert(3)
+tree.insert(7)
+tree.insert(13)
+tree.insert(17)
+
+print("Is tree almost complete?:", tree.is_complete())
+
+
+Output:
+Is tree almost complete?: True
