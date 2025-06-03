@@ -1,0 +1,60 @@
+Balanced Tree Check
+
+
+class Node:
+    def __init__(self, item=None, left=None, right=None):
+        self.item = item
+        self.left = left
+        self.right = right
+
+class BST:
+    def __init__(self):
+        self.root = None
+    
+    def insert(self, data):
+        self.root = self.rinsert(self.root, data)
+    
+    def rinsert(self, root, data):
+        if root is None:
+            return Node(data)
+        if data < root.item:
+            root.left = self.rinsert(root.left, data)
+        else:
+            root.right = self.rinsert(root.right, data)
+        return root
+
+    def is_balanced(self):
+        return self.rbalanced(self.root) != -1
+
+    def rbalanced(self, root):
+        if root is None:
+            return 0  # Empty tree is balanced
+
+        left_height = self.rbalanced(root.left)
+        if left_height == -1:
+            return -1  # Left subtree is not balanced
+
+        right_height = self.rbalanced(root.right)
+        if right_height == -1:
+            return -1  # Right subtree is not balanced
+
+        if abs(left_height - right_height) > 1:
+            return -1  # Current node is unbalanced
+
+        return max(left_height, right_height) + 1  # Return height
+
+# ✅ **Example Usage**
+tree = BST()
+tree.insert(10)
+tree.insert(5)
+tree.insert(15)
+tree.insert(3)
+tree.insert(7)
+tree.insert(13)
+tree.insert(17)
+
+print("Is tree balanced?:", tree.is_balanced())  # Output: True
+
+
+Output:
+Is tree balanced?: True
