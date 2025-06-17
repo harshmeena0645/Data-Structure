@@ -11,9 +11,9 @@ def insert(root, data):
     if root is None:
         return Node(data)
     if data < root.item:
-        root.left = insert(root.left, data)
+        root.left = insert(root.left,data)
     else:
-        root.right = insert(root.right, data)
+        root.right = insert(root.right,data)
     return root
 
 def search(root, key):
