@@ -28,20 +28,20 @@ class BST:
 
     def rbalanced(self, root):
         if root is None:
-            return 0  # Empty tree is balanced
+            return 0
 
         left_height = self.rbalanced(root.left)
         if left_height == -1:
-            return -1  # Left subtree is not balanced
+            return -1
 
         right_height = self.rbalanced(root.right)
         if right_height == -1:
-            return -1  # Right subtree is not balanced
+            return -1
 
         if abs(left_height - right_height) > 1:
-            return -1  # Current node is unbalanced
+            return -1
 
-        return max(left_height, right_height) + 1  # Return height
+        return max(left_height, right_height) + 1
 
 # ✅ **Example Usage**
 tree = BST()
