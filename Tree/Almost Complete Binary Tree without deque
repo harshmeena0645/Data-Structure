@@ -1,4 +1,4 @@
-Almost Complete Binary Tree without deque
+Almost Complete BST without deque
 
 class Node:
     def __init__(self, item=None, left=None, right=None):
