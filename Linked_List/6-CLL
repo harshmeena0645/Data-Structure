@@ -16,10 +16,10 @@ SLL is Better then CLL When Start with 1st List
 ------------------------------^
 ------------------------------|
 
-insertion at start()---------->#No Traversing
-insertion at end()------------>#No Traversing
-deletion at start()----------->#No Traversing
-deletion at end()------------->#Traversing
+insertion at start()-------->#No Traversing
+insertion at end()---------->#No Traversing
+deletion at start()--------->#No Traversing
+deletion at end()----------->#Traversing
 
 CLL is Better then SLL When Start with last List
 
